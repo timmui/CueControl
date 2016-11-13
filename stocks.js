@@ -1,19 +1,21 @@
 var rp = require('request-promise');
+var parser = require('xml2json');
 
-function getStocks(callback){
+function getStocks(symbol, callback){
     var options = {
-        uri: 'https://www.google.com/',
+        uri: `http://ws.nasdaqdod.com/v1/NASDAQAnalytics.asmx/GetEndOfDayData?_Token=BC2B181CF93B441D8C6342120EB0C971&Symbols=${symbol}&StartDate=${'11/01/2016'}&EndDate=${'11/13/2016'}&MarketCenters=Q`,
         method: 'GET',
         }
-    console.log('here');
 
     rp(options).
         then((response) => {
-            console.log('here2');
-            console.log(response);
+            var res = JSON.parse(parser.toJson( response ));
+            console.log(res.ArrayOfEndOfDayPriceCollection.EndOfDayPriceCollection.Prices.EndOfDayPrice);
+            if (callback) return callback(null, res);
         })
         .catch((err) => {
             console.error(err);
+            if (callback) return callback(err);
         });
 }
 exports.getStocks = getStocks;
