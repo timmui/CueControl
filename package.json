@@ -16,6 +16,7 @@
     "request": "^2.78.0",
     "request-promise": "^4.1.1",
     "sleep": "5.0.0",
+    "socket.io-client": "^1.5.1",
     "xml2json": "^0.10.0"
   },
   "devDependencies": {
