@@ -1,6 +1,5 @@
 const _ = require('lodash');
 const config = require('./config');
-const CueSDK = require('cue-sdk-node');
 const sleep = require('sleep');
 
 function output(results, trend, cue, callback) {

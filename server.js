@@ -27,12 +27,18 @@ socket.on('clear', function (data) {
 });
 socket.on('update', function (data) {
     console.log('update', data);
-    update(data);
+    if (cue) {
+        cue.close();
+    }
+    cue = new CueSDK.CueSDK();
+    cue.clear()
+update(data);
 });
-socket.on('disconnect', function () { });
+socket.on('disconnect', function () {
+    console.log('disconnected');
+});
 
 function update(symbol) {
-    cue = new CueSDK.CueSDK();
     async.waterfall([
         (next) => {
             // Call NASDAQ for prices
