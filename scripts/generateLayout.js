@@ -14,45 +14,65 @@ var maxRight = 284;
 // Init Layout array
 var layout = [];
 
-for(var row = 0; row <= maxBottom; row++){
-    layout.push((new Array(maxRight + 1)).fill(false));
+for(var col = 0; col <= maxRight; col++){
+    layout.push((new Array(maxBottom + 1)).fill(false));
 }
 
 _.each(cue.getLeds(), (key) => {
-    // Beyond the keys we want
     var keyBottom = key.top + key.height;
-    var keyRight = key.left + key.width;
+    var keyRight = key.left + key.width; 
+
+    // Beyond the keys we want
     if (maxBottom < keyBottom || key.top < minTop){
         return;
     } else if (maxRight < keyRight || key.left < minLeft){
         return;
     } 
 
-    for( var row = key.top; row <= keyBottom; row++ ){
-        for( var col = key.left; col < keyRight; col++){
-            layout[row][col] = key.ledId;
+    for( var col = key.left; col < keyRight; col++){
+        for( var row = key.top; row <= keyBottom; row++ ){
+            layout[col][row] = key.ledId;
         }
     }
     return;
 });
 
+// Remove falsy values from the columns
+layout = layout.slice(minLeft,maxRight);
 var cleanLayout = [];
 for(var i = 0; i < layout.length; i++){
-    if (_.isNumber(layout[i][7])){
-        cleanLayout.push(layout[i]);
-    }
+    cleanLayout.push(layout[i].slice(minTop, maxBottom));
 }
 
-var out  = '[';
+// // CSV
+// var out = '';
+// for( var col = cleanLayout.length-1; col >= 0; col--){
+//     for (var row = 0; row < cleanLayout[col].length; row++){
+//         out += cleanLayout[col][row];
+//         if (row === cleanLayout[col].length -1){
+//             out += '\n'
+//         } else {
+//             out += ','
+//         }
+//     }
+// }
 
-for(var r = 0; r < cleanLayout.length; r++){
+// fs.writeFileSync("./layout.csv", out);
+
+// Array
+var out = '[\n';
+for( var col = cleanLayout.length-1; col >= 0; col--){
     out += '[';
-    for(var c = 0; c < cleanLayout[r].length; c++) { 
-        out += cleanLayout[r][c] + (c === cleanLayout[r].length-1 ? '' :',');
+    for (var row = 0; row < cleanLayout[col].length; row++){
+        out += cleanLayout[col][row];
+        if (row === cleanLayout[col].length -1){
+            out += '],\n'
+        } else {
+            out += ','
+        }
     }
-    out += ']' + (r === cleanLayout.length-1 ? '\n' :',\n');
 }
-
-out += ']';
+out += ']'
 
 fs.writeFileSync("./layout.out", out);
+
