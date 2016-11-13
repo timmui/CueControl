@@ -220,7 +220,7 @@ cryptiles@2.x.x:
   dependencies:
     boom "2.x.x"
 
-cue-sdk-node:
+cue-sdk-node@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/cue-sdk-node/-/cue-sdk-node-1.2.0.tgz#8c7b17d6c02f97b3bb570a00e9db8f5870d84287"
   dependencies:
@@ -278,7 +278,7 @@ doctrine@^1.2.2:
     esutils "^2.0.2"
     isarray "^1.0.0"
 
-dotenv:
+dotenv@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-2.0.0.tgz#bd759c357aaa70365e01c96b7b0bec08a6e0d949"
 
@@ -357,7 +357,7 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint:
+eslint@3.10.0:
   version "3.10.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-3.10.0.tgz#4a90079046b3a89099eaa47787eafeb081e78209"
   dependencies:
@@ -449,9 +449,9 @@ fast-levenshtein@~2.0.4:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.5.tgz#bd33145744519ab1c36c3ee9f31f08e9079b67f2"
 
-"ffi@git+https://github.com/Yannicked/node-ffi":
+"ffi@git+https://github.com/Yannicked/node-ffi.git":
   version "2.0.0"
-  resolved "git+https://github.com/Yannicked/node-ffi#fa13ce1b3c660661ada99f5e945efd0a0dd0f9de"
+  resolved "git+https://github.com/Yannicked/node-ffi.git#fa13ce1b3c660661ada99f5e945efd0a0dd0f9de"
   dependencies:
     bindings "~1.2.0"
     debug "2"
@@ -763,9 +763,9 @@ lodash@^4.0.0, lodash@^4.3.0:
   version "4.16.6"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.16.6.tgz#d22c9ac660288f3843e16ba7d2b5d06cca27d777"
 
-lodash@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.1.0.tgz#d41b8b33530cb3be088853208ad30092d2c27961"
+lodash@3.10.1:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
 "match-stream@>= 0.0.2 < 1":
   version "0.0.2"
@@ -808,7 +808,7 @@ mute-stream@0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.5.tgz#8fbfabb0a98a253d3184331f9e8deb7372fac6c0"
 
-nan@2:
+nan@>=2.0.0, nan@2:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.4.0.tgz#fb3c59d45fe4effe215f0b890f8adf6eb32d2232"
 
@@ -1051,6 +1051,12 @@ shelljs@^0.7.5:
     glob "^7.0.0"
     interpret "^1.0.0"
     rechoir "^0.6.2"
+
+sleep@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/sleep/-/sleep-5.0.0.tgz#565d29a1ded05290180b571643d2ea794025b5ef"
+  dependencies:
+    nan ">=2.0.0"
 
 slice-ansi@0.0.4:
   version "0.0.4"
