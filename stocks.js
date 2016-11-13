@@ -5,7 +5,7 @@ var parser = require('xml2json');
 
 function getStocks(symbol, callback) {
     var options = {
-        uri: `http://ws.nasdaqdod.com/v1/NASDAQAnalytics.asmx/GetEndOfDayData?_Token=BC2B181CF93B441D8C6342120EB0C971&Symbols=${symbol}&StartDate=${'10/31/2016'}&EndDate=${'11/12/2016'}&MarketCenters=Q`,
+        uri: `http://ws.nasdaqdod.com/v1/NASDAQAnalytics.asmx/GetEndOfDayData?_Token=BC2B181CF93B441D8C6342120EB0C971&Symbols=${symbol}&StartDate=${'10/31/2016'}&EndDate=${'11/12/2016'}&MarketCenters= `,
         method: 'GET',
     };
 
