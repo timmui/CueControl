@@ -50,7 +50,9 @@ for (var i = 0; i < cleanLayout.length; i++) {
 }
 cleanLayout.reverse();
 
-// // CSV
+/*
+Use to generate CSV
+*/
 var out = '';
 for ( var col = cleanLayout.length-1; col >= 0; col--){
     for (var row = 0; row < cleanLayout[col].length; row++){
@@ -63,10 +65,11 @@ for ( var col = cleanLayout.length-1; col >= 0; col--){
         }
     }
 }
-
 fs.writeFileSync('./layout.csv', out);
 
-// Array
+/* 
+Use to generate Array
+*/
 // var out = '[\n';
 // for( var col = cleanLayout.length-1; col >= 0; col--){
 //     out += '[';
@@ -80,6 +83,5 @@ fs.writeFileSync('./layout.csv', out);
 //     }
 // }
 // out += ']'
-
 // fs.writeFileSync("./layout.out", out);
 

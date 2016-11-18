@@ -10,7 +10,6 @@ const stocks = require('./stocks');
 const animation = require('./animation');
 
 var cue;
-var isChanged = true;
 
 socket.on('connect', function () {
     console.log('Connected');
@@ -27,12 +26,8 @@ socket.on('clear', function (data) {
 });
 socket.on('update', function (data) {
     console.log('update', data);
-    if (cue) {
-        cue.close();
-    }
     cue = new CueSDK.CueSDK();
-    cue.clear()
-update(data);
+    update(data);
 });
 socket.on('disconnect', function () {
     console.log('disconnected');
@@ -41,8 +36,20 @@ socket.on('disconnect', function () {
 function update(symbol) {
     async.waterfall([
         (next) => {
+            var date = new Date();
+            var mm = date.getMonth() + 1;
+            var dd = date.getDate();
+            var yyyy = date.getFullYear();
+            var endDate = mm + '/' + dd + '/' + yyyy;
+
+            date.setDate(date.getDate() - config.dateSpan);
+            mm = date.getMonth() + 1;
+            dd = date.getDate();
+            yyyy = date.getFullYear();
+            var startDate = mm + '/' + dd + '/' + yyyy;
+
             // Call NASDAQ for prices
-            stocks.getStocks(symbol, next);
+            stocks.getStocks(token, symbol, startDate, endDate, next);
         },
         (result, next) => {
             // Identify keys to light up - input Response from NASDAQ 
