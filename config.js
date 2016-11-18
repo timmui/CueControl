@@ -3,6 +3,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = {
+  token: 'BC2B181CF93B441D8C6342120EB0C971',
   dateSpan: 14,
   xScale: 30,
   xSpan: 7,

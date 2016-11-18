@@ -5,7 +5,6 @@ const CueSDK = require('cue-sdk-node');
 const sleep = require('sleep');
 const socket = require('socket.io-client')('https://rocky-chamber-37355.herokuapp.com/');
 
-
 const stocks = require('./stocks');
 const animation = require('./animation');
 
@@ -49,7 +48,7 @@ function update(symbol) {
             var startDate = mm + '/' + dd + '/' + yyyy;
 
             // Call NASDAQ for prices
-            stocks.getStocks(token, symbol, startDate, endDate, next);
+            stocks.getStocks(config.token, symbol, startDate, endDate, next);
         },
         (result, next) => {
             // Identify keys to light up - input Response from NASDAQ 
