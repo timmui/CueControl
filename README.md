@@ -1,5 +1,7 @@
 # CueControl
 
+To be used with [CueControlCloud](https://github.com/timmui/CueControlCloud).
+
 Running
 ---
 Currently this will only run with the Pebble app. 
@@ -8,8 +10,8 @@ To avoid using the Pebble app, simply add `update()` with your stock symbol of c
 To set up the repo and run the program, enter the following into cammand line:
 
 ```
-yarn
-yarn start
+$ yarn
+$ yarn start
 ```
 
 Open Source Software
