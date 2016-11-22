@@ -10,8 +10,8 @@ To avoid using the Pebble app, simply add `update()` with your stock symbol of c
 To set up the repo and run the program, enter the following into cammand line:
 
 ```
-$ yarn
-$ yarn start
+$ npm install
+$ npm start
 ```
 
 Open Source Software
@@ -32,4 +32,4 @@ Open Source Software
 
 Dev Notes
 ---
-The Nasqaq API is not open source so you will not be able to make get requests. We are currently looking into using a different API.
+The Nasdaq API is not open source so you will not be able to make get requests. We are currently looking into using a different API.
