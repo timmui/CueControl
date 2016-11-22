@@ -2,10 +2,10 @@
 
 Running
 ---
-Make sure you also have [CueControlCloud](https://github.com/timmui/CueControlCloud).
-If you do not want to use CueControlCloud, simply add `update()` with your stock symbol of choice in `server.js`.
+Currently this will only run with the Pebble app. 
+To avoid using the Pebble app, simply add `update()` with your stock symbol of choice in `server.js`.
 
-To start the program, enter the following into cammand line:
+To set up the repo and run the program, enter the following into cammand line:
 
 ```
 yarn
