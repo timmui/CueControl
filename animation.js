@@ -7,23 +7,19 @@ function output(results, trend, cue, callback) {
     cue.clear();
     // console.log(results);
     if (trend > 0) {
-        cue.set([
-            ['Keypad8', config.colourRValue, config.colourGValue, config.colourBValue],
-            ['Keypad4', config.colourRValue, config.colourGValue, config.colourBValue],
-            ['Keypad5', config.colourRValue, config.colourGValue, config.colourBValue],
-            ['Keypad6', config.colourRValue, config.colourGValue, config.colourBValue]]);
+        _.each(config.upArrow, key => {
+            cue.set(key, 0, config.green, 0, true);
+        });
         _.each(results, (result) => {
-            cue.set(result, config.colourRValue, config.colourGValue, config.colourBValue, true);
+            cue.set(result, 0, config.green, 0, true);
             sleep.usleep(75000);
         });
     } else {
-        cue.set([
-            ['Keypad2', config.colourGValue, config.colourRValue, config.colourBValue],
-            ['Keypad4', config.colourGValue, config.colourRValue, config.colourBValue],
-            ['Keypad5', config.colourGValue, config.colourRValue, config.colourBValue],
-            ['Keypad6', config.colourGValue, config.colourRValue, config.colourBValue]]);
+         _.each(config.downArrow, key => {
+            cue.set(key, config.red, 0, 0, true);
+        });
         _.each(results, (result) => {
-            cue.set(result, config.colourGValue, config.colourRValue, config.colourBValue, true);
+            cue.set(result, config.red, 0, 0, true);
             sleep.usleep(75000);
         });
     }

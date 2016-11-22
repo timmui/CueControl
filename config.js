@@ -3,9 +3,15 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = {
-  colourRValue: 0,
-  colourGValue: 128,
-  colourBValue: 0,
+  token: 'BC2B181CF93B441D8C6342120EB0C971',
+  dateSpan: 14,
+  xScale: 30,
+  xSpan: 7,
+  ySpan: 5,
+  red: 225,
+  green: 128,
+  upArrow: [110, 113, 114, 115],
+  downArrow: [117, 113, 114, 115],
   keymap: [
     [0x1B, 1],
     [0x70, 2],
